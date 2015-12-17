@@ -15,15 +15,15 @@ class Graphic
     GL::TexParameteri(GL::GL_TEXTURE_2D, GL::GL_TEXTURE_MAG_FILTER, GL::GL_NEAREST)
     @scale = scale
   end
-  
+
   def draw(x, y, z, mirror = false)
     @image.draw((mirror ? @image.width * @scale : 0) + x, y, z, (mirror ? -1 : 1 ) * @scale, @scale)
   end
-  
+
   def width
     @image.width
   end
-  
+
   def height
     @image.height
   end
@@ -37,11 +37,11 @@ class Animation
       @graphics[i] = Graphic.new(image)
     end
   end
-  
+
   def draw(frame, x, y, z, mirror = false)
     @graphics[frame].draw(x, y, z, mirror)
   end
-  
+
   def size
     @graphics.size
   end
